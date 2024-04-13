@@ -5,35 +5,31 @@ const { Types } = require('mongoose');
 
 router.get('/questionaires', async (req, res) => {
     //let objectId = new Types.ObjectId(req.params.id);
-    //let location = await getLocationById(objectId);
-    //res.send(location);
+    let questionaireList = await getQuestionaires();
+    res.send(questionaireList);
 });
 
 router.get('/questionaire/:id', async (req, res) => {
-    //let objectId = new Types.ObjectId(req.params.id);
-    //let location = await getLocationById(objectId);
-    //res.send(location);
-    res.send("questionaire get path");
+    let objectId = new Types.ObjectId(req.params.id);
+    let questionaire = await getQuestionaireById(objectId);
+    res.send(questionaire);
+    //res.send("questionaire get path");
 });
 
-router.get('/questions/:questionaireId', async (req, res) => {
-    //let objectId = new Types.ObjectId(req.params.id);
-    //let location = await getLocationById(objectId);
-    //res.send(location);
-});
-
-router.post('/question/:id', async (req, res) => {
-    //let objectId = new Types.ObjectId(req.params.id);
-    //let location = await getLocationById(objectId);
-    //res.send(location);
+router.get('/questions/:id', async (req, res) => {
+    let objectId = new Types.ObjectId(req.params.id);
+    let questions = await getQuestionsById(objectId);
+    res.send(questions);
 });
 
 router.post('/answers/question/:questionID', async (req, res) => {
-res.send("test");
+    let questionPost = await postQuestion(objectId);
+    res.send(questionPost);
 });
 
 router.post('/answers/questionaire/:questionaireID', async (req, res) => {
-    res.send("test");
+    let questionairePost = await postQuestionaire(objectId);
+    res.send(questionairePost);
 });
 
 module.exports = router

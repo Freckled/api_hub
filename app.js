@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
 const locationsRoute = require('./routes/locations')
 const pollsRoute = require('./routes/polls')
 
-const dataBaseName = "WashIT";
-const dbConnect = require('./data/db.acces');
+//const dataBaseName = "WashIT";
+//const dbConnect = require('./data/db.acces');
 //const locationController = require("./controllers/location.controller");
 
 
@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
     res.send('Hello World, from express');
 });
 
-const connectionString =`mongodb+srv://${process.env.adminUsername}:${process.env.adminPassword}@avans.lvtbins.mongodb.net/${dataBaseName}?retryWrites=true&w=majority`;
-dbConnect.connectDB(connectionString);
+//const connectionString =`mongodb+srv://${process.env.adminUsername}:${process.env.adminPassword}@avans.lvtbins.mongodb.net/${dataBaseName}?retryWrites=true&w=majority`;
+//dbConnect.connectDB(connectionString);
 
 /**
  * Starts the server, listening on the port
