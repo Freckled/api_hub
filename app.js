@@ -33,4 +33,4 @@ dbConnect.connectDB(connectionString);
  * Starts the server, listening on the port
  * @param port the port on which to start listening, as integer
  */
-app.listen(port, () => console.log(`WashIT API on port ${port}!`))
+app.listen(port, () => console.log(`API on port ${port}!`))
