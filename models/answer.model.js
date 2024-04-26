@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-const answerSchema = {
-    _id: {type: mongoose.Schema.Types.ObjectId,  ref: '_id'},
-    question_ID:Number,
-    questionType:String,
-    answer:String,
-    lon:Number,
-    lat:Number,
-    userID:String,
-    date:Date
-}
+
+// Define schema for the answer
+const answerSchema = new Schema({
+    questionnaire_id: String,
+    answers: [{
+        question_id: String,
+        response: Schema.Types.Mixed // Can be any type, depending on the question type
+    }]
+});
 
 module.exports = mongoose.model("Answer", answerSchema);

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
+const questionSchema = require("./question.model");
 
-const answerSchema = {
-    _id: {type: mongoose.Schema.Types.ObjectId,  ref: '_id'},
-    questionaire_ID:Number,
-    questions:{ type : Array , "default" : [] },
-    lon:Number,
-    lat:Number,
-    userID:String,
-}
+// Define schema for the questionnaire
+const questionnaireSchema = new Schema({
+    title: String,
+    description: String,
+    questions: [questionSchema]
+});
 
-module.exports = mongoose.model("Questionaire", answerSchema);
+module.exports = mongoose.model("Questionaire", questionnaireSchema);
+
